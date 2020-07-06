@@ -1,0 +1,71 @@
+body {
+  --dark-gray: #1f2120;
+  --note-red: red;
+  margin: 0;
+  background-color: var(--dark-gray);
+}
+
+.notes-board {
+  display: flex;
+  justify-content: center;
+}
+
+.note {
+  position: relative;
+  width: 1vw;
+}
+
+.block {
+  position: absolute;
+  width: 100%;
+  height: 0vh;
+  top: 100vh;
+  bottom: 100vh;
+  /* border-radius: 5px; */
+  background: linear-gradient(0deg, var(--dark-gray), var(--dark-gray));
+  animation: mymove 10s linear forwards;
+}
+
+.clear {
+  bottom: 0vh;
+}
+
+@keyframes mymove {
+  from {
+    top: 100vh;
+    height: 0vh;
+    background: linear-gradient(0deg, var(--note-red), var(--note-red));
+  }
+  to {
+    top: 0vh;
+    height: 100vh;
+    background: linear-gradient(0deg, var(--note-red), var(--note-red));
+  }
+}
+
+.block-remove {
+  position: absolute;
+  width: 30px;
+  height: 0vh;
+  top: 100vh;
+  background-color: var(--dark-gray);
+  /* background: linear-gradient(0deg, var(--dark-gray) 99%, var(--dark-gray) 99%, transparent 99%),
+    radial-gradient(
+      circle at 50% -4%,
+      transparent 20px,
+      transparent 20px,
+      var(--dark-gray) 20px
+    ); */
+  animation: moveremove 10s linear forwards;
+}
+
+@keyframes moveremove {
+  from {
+    top: 100vh;
+    height: 0vh;
+  }
+  to {
+    top: 0vh;
+    height: 100vh;
+  }
+}
